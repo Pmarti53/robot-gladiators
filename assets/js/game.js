@@ -3,14 +3,23 @@ var playerHealth = 100;
 var playerAttack = 10;
 var playerMoney = 10;
 
-var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
-console.log(enemyNames);
-console.log(enemyNames)
+var enemyNames = ['Roborto', 'Amy Android', 'Robo Trumble'];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
+console.log(enemyNames);
+console.log(enemyNames.length);
+for(var i = 0; i < enemyNames.length; i++) {
+    console.log(enemyNames[i]);
+    console.log(i);
+    console.log(enemyNames[i] + " is at " + i + " index ");
+}
+console.log(enemyNames[0]);
+console.log(enemyNames[3]);
+
 // fight function
-var fight = function () {
+var fight = function(enemyNames) {
+ 
     // Alert players that they are starting the round
     window.alert("welcome to Robot Gladiators!");
 
@@ -22,7 +31,7 @@ var fight = function () {
         // remove enemy's health by subtracting the amount set in the playerAttack variable
         enemyHealth = enemyHealth - playerAttack;
         console.log(
-            playerName + " attacked " + enemyName + ". " +enemyName + " now has " + " health remaining. "
+            playerName + " attacked " + enemyNames + ". " +enemyNames + " now has " + " health remaining. "
         );
 
         // check enemy's health
@@ -66,4 +75,6 @@ var fight = function () {
 };
 
 // run fight function to start game
-//fight();
+for(var i = 0; i < enemyNames.length; i++) {
+    fight(enemyNames[i])
+}
