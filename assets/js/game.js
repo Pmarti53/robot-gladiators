@@ -7,7 +7,7 @@ var enemyNames = ['Roborto', 'Amy Android', 'Robo Trumble'];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
- // function to start a new game
+// function to start a new game
 var startGame = function() {
     // reset player stats
     playerHealth = 100;
@@ -124,6 +124,39 @@ var startGame = function() {
         window.alert(playerName + ' still has ' + playerHealth + ' health left.');
       }
     }
-  }; 
-// start first game when page loads
-startGame();
+  };
+  
+  // go to shop between battles function
+  var shop = function() {
+    // ask player what they'd like to do
+    var shopOptionPrompt = window.prompt(
+      'Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one "REFILL", "UPGRADE", or "LEAVE" to make a choice.'
+    );
+  
+    // use switch case to carry out action
+    switch (shopOptionPrompt) {
+      case 'refill':
+      case 'REFILL':
+        window.alert("Refilling player's health by 20 for 7 dollars.");
+        playerHealth += 20;
+        playerMoney -= 7;
+        break;
+      case 'upgrade':
+      case 'UPGRADE':
+        window.alert("Upgrading player's attack by 6 for 7 dollars.");
+        playerAttack += 6;
+        playerMoney -= 7;
+        break;
+      case 'leave':
+      case 'LEAVE':
+        window.alert('Leaving the store.');
+        break;
+      default:
+        window.alert('You did not pick a valid option. Try again.');
+        shop();
+        break;
+    }
+  };
+  
+  // start first game when page loads
+  startGame();
