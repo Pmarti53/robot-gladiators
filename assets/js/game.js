@@ -1,5 +1,4 @@
-/* GAME FUNCTIONS */
-
+/*GAME FUNCTIONS*/
 // function to start a new game
 var startGame = function() {
   // reset player stats
